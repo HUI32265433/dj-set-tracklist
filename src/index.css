@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --accent: #f472b6;
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-ink-bg text-ink-text font-sans antialiased;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
+}
+
+/* thin scrollbars for dense lists */
+*::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #25262b;
+  border-radius: 2px;
+}
+
+@layer components {
+  .btn-primary {
+    @apply flex items-center justify-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold text-black transition active:scale-[0.98];
+    background: var(--accent);
+  }
+  .btn-ghost {
+    @apply flex items-center justify-center gap-2 rounded-md border border-ink-border px-4 py-2.5 text-sm font-medium text-ink-text transition active:scale-[0.98] active:bg-ink-alt;
+  }
+  .input-dark {
+    @apply w-full rounded-md border border-ink-border bg-ink-row px-3 py-2.5 text-sm text-ink-text placeholder:text-ink-dim/60 focus:border-[var(--accent)] focus:outline-none;
+  }
+  .sheet-panel {
+    @apply fixed inset-x-0 bottom-0 z-50 mx-auto flex max-h-[88dvh] w-full max-w-lg flex-col rounded-t-2xl border-t border-ink-border bg-ink-bg shadow-2xl;
+  }
+}
